@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Service //этот аннотация указывает, что данный класс является сервисом - службой внедрения зависимостей и бизнес-логикой
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
@@ -29,6 +29,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public Employee getEmployee(int id) {
         return employeeDAO.getEmployee(id);
+    }
+
+    @Override
+    @Transactional
+    public Employee getEmployee(String name) {
+        return employeeDAO.getEmployee(name);
     }
 
     @Override
